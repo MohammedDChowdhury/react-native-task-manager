@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -12,6 +18,12 @@ export default function App() {
     { name: "toad", id: "6" },
     { name: "bowser", id: "7" },
   ]);
+  const pressHandler = (id) => {
+    console.log(id);
+    setPeople((prevPeople) => {
+      return prevPeople.filter((person) => person.id != id); // returns the ids that are not = to an id so it will pretty much remove it
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -20,15 +32,16 @@ export default function App() {
         key={"#"}
         keyExtractor={(item) => "#" + item.id}
         data={people}
-        renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
-      />
-      {/* <ScrollView>
-        {people.map((item) => (
-          <View key={item.key}>
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => {
+              pressHandler(item.id);
+            }}
+          >
             <Text style={styles.item}>{item.name}</Text>
-          </View>
-        ))}
-      </ScrollView> */}
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 }
