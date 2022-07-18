@@ -41,30 +41,30 @@ export default function App() {
   };
 
   return (
-    <Sandbox />
-    // <TouchableWithoutFeedback
-    //   onPress={() => {
-    //     Keyboard.dismiss();
-    //     console.log("dismissed keyboard");
-    //   }}
-    // >
-    //   <View style={styles.container}>
-    //     {/* header */}
-    //     <Header />
-    //     <View style={styles.content}>
-    //       {/* todo form */}
-    //       <AddTodo submitHandler={submitHandler} />
-    //       <View style={styles.list}>
-    //         <FlatList
-    //           data={todos}
-    //           renderItem={({ item }) => (
-    //             <TodoItem item={item} pressHandler={pressHandler} />
-    //           )}
-    //         />
-    //       </View>
-    //     </View>
-    //   </View>
-    // </TouchableWithoutFeedback>
+    // <Sandbox />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+        console.log("dismissed keyboard");
+      }}
+    >
+      <View style={styles.container}>
+        {/* header */}
+        <Header />
+        <View style={styles.content}>
+          {/* todo form */}
+          <AddTodo submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <FlatList
+              data={todos}
+              renderItem={({ item }) => (
+                <TodoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
+          </View>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 40, // padding in every direction
+
+    flex: 1,
   },
-  list: { marginTop: 20 }, // so the list has a margin away from the form
+  list: { marginTop: 20, flex: 1 }, // so the list has a margin away from the form
 });

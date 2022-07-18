@@ -16,23 +16,39 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     flexDirection: "row",
+    justifyContent: "space-around", // main axis
+    alignItems: "flex-end", // cross axis
     paddingTop: 40,
     backgroundColor: "#ddd",
+    borderWidth: 5,
+    marginTop: 21,
   },
   boxOne: {
+    flex: 1,
     backgroundColor: "violet",
     padding: 10,
+    borderWidth: 4,
+    borderColor: "black",
   },
   boxTwo: {
+    flex: 1,
     backgroundColor: "gold",
-    padding: 10,
+    padding: 20,
+    borderWidth: 4,
+    borderColor: "black",
   },
   boxThree: {
+    flex: 1,
     backgroundColor: "coral",
-    padding: 10,
+    padding: 30,
+    borderWidth: 4,
+    borderColor: "black",
   },
   boxFour: {
+    flex: 1,
     backgroundColor: "skyblue",
-    padding: 10,
+    padding: 40,
+    borderWidth: 4,
+    borderColor: "black",
   },
 });
